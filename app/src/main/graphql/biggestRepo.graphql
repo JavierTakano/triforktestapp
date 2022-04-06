@@ -1,0 +1,15 @@
+query biggestRepo($login: String!, $cursor: String) {
+    organization(login: $login) {
+        name
+        repositories(first: 100, after: $cursor) {
+            nodes {
+                name
+                diskUsage
+            }
+            pageInfo {
+                hasNextPage
+                endCursor
+            }
+        }
+    }
+}

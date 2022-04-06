@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TriforkTestApp</string>
+    <string name="org_amount_text">The total number of organizations on github is:</string>
+    <string name="repos_by_org_text">The organization %1$s, has %2$d repositories on Github</string>
+    <string name="biggest_repo_text">This company\'s biggest repository is %1$d bytes</string>
+    <string name="ex_1">Ex 1</string>
+    <string name="ex_2">Ex 2</string>
+    <string name="ex_3">Ex 3</string>
+    <string name="input_org_hint">Org name</string>
+    <string name="search_button">Search</string>
+    <string name="refresh_button">Refresh</string>
+</resources>

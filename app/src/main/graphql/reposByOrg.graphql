@@ -1,0 +1,8 @@
+query reposByOrg($login: String!) {
+    organization(login:$login) {
+        name
+        repositories {
+            totalCount
+        }
+    }
+}

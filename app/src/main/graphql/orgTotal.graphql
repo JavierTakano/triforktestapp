@@ -1,0 +1,5 @@
+query orgTotal {
+    organizations: search(type:USER, query: "type:org") {
+        userCount
+    }
+}
