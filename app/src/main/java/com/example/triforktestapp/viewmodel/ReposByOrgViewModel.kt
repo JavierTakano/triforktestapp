@@ -13,7 +13,6 @@ class ReposByOrgViewModel : ViewModel() {
     private val reposByOrgModel = ReposByOrgModel()
     val data = MutableLiveData<ApolloResponse<ReposByOrgQuery.Data>>()
 
-
     fun updateReposOrg(organization: String) {
         viewModelScope.launch {
             try {

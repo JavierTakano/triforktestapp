@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.triforktestapp.R
 import com.example.triforktestapp.databinding.BiggestRepoActivityBinding
 import com.example.triforktestapp.viewmodel.BiggestRepoViewModel
@@ -21,9 +20,13 @@ class BiggestRepoActivity : AppCompatActivity() {
         binding = BiggestRepoActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        biggestRepoViewModel.data.observe(this, Observer {
-            binding.orgRepoSizeText.text = getString(R.string.biggest_repo_text, it)
-        })
+        biggestRepoViewModel.data.observe(this) {
+            if (it == null) {
+                binding.orgRepoSizeText.text = getString(R.string.org_not_found_text)
+            } else {
+                binding.orgRepoSizeText.text = getString(R.string.biggest_repo_text, it)
+            }
+        }
 
         binding.searchButton.setOnClickListener {
             val text = binding.inputOrgName.text.toString()

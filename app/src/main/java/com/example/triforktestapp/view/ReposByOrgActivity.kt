@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.example.triforktestapp.R
 import com.example.triforktestapp.databinding.ReposByOrgActivityBinding
 import com.example.triforktestapp.viewmodel.ReposByOrgViewModel
@@ -21,12 +20,16 @@ class ReposByOrgActivity : AppCompatActivity() {
         binding = ReposByOrgActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        reposByOrgViewModel.data.observe(this, Observer {
-            binding.repoAmountText.text = getString(
-                R.string.repos_by_org_text, it.data?.organization?.name.toString(),
-                it.data?.organization?.repositories?.totalCount
-            )
-        })
+        reposByOrgViewModel.data.observe(this) {
+            if (it.data?.organization?.name.isNullOrBlank()) {
+                binding.repoAmountText.text = getString(R.string.org_not_found_text)
+            } else {
+                binding.repoAmountText.text = getString(
+                    R.string.repos_by_org_text, it.data?.organization?.name.toString(),
+                    it.data?.organization?.repositories?.totalCount
+                )
+            }
+        }
 
         binding.searchButton.setOnClickListener {
             val text = binding.inputOrgName.text.toString()

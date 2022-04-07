@@ -9,7 +9,10 @@ class BiggestRepoModel {
 
     private lateinit var client: ApolloClient
 
-    suspend fun getRepos(organization: String, cursor: String?): ApolloResponse<BiggestRepoQuery.Data> {
+    suspend fun getRepos(
+        organization: String,
+        cursor: String?
+    ): ApolloResponse<BiggestRepoQuery.Data> {
         client = ApolloInstance().get()
         return client.query(BiggestRepoQuery(organization, cursor)).execute()
     }

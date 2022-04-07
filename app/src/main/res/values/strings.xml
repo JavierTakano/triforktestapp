@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">TriforkTestApp</string>
     <string name="org_amount_text">The total number of organizations on github is:</string>
+    <string name="org_not_found_text">The organization doesn\'t exist</string>
     <string name="repos_by_org_text">The organization %1$s, has %2$d repositories on Github</string>
     <string name="biggest_repo_text">This company\'s biggest repository is %1$d bytes</string>
     <string name="ex_1">Ex 1</string>
